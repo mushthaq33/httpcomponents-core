@@ -218,7 +218,9 @@ public abstract class AbstractMessageParser<T extends HttpMessage> implements NH
                     }
 
                     parseHeader();
-                } else {
+                }
+
+                if (!this.sessionBuffer.hasData()) {
                     this.state = COMPLETED;
                 }
                 break;
